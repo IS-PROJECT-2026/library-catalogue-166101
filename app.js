@@ -32,7 +32,8 @@ function renderBooks(list) {
   list.forEach(function (book) {
     var card = document.createElement("article");
     var initials = book.title.charAt(0) + book.author.charAt(0);
-    var status = book.available ? "Out on loan" : "Available";
+    var status = book.available ? "Available" : "Out on loan";
+    var badgeClass = book.available ? "badge badge--in" : "badge badge--out";
 
     card.className = "book-card";
     card.innerHTML =
@@ -41,7 +42,7 @@ function renderBooks(list) {
       "<h3>" + book.title + "</h3>" +
       '<p class="book-author">' + book.author + "</p>" +
       '<p class="book-meta">' + book.genre + " &middot; " + book.year + "</p>" +
-      '<span class="badge">' + status + "</span>" +
+      '<span class="' + badgeClass + '">' + status + "</span>" +
       "</div>";
 
     grid.appendChild(card);

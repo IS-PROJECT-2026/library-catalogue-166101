@@ -247,3 +247,13 @@ img {
   background-color: var(--clr-surface);
   color: var(--clr-ink);
 }
+
+.badge--in {
+  background-color: #e6f0ec;
+  color: var(--clr-accent-dark);
+}
+
+.badge--out {
+  background-color: #f6e5e2;
+  color: #8c3b2c;
+}
