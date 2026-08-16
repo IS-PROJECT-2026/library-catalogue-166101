@@ -11,7 +11,7 @@
   <header class="site-header">
     <div class="wrap header-inner">
       <a class="site-title" href="index.html">Mwangaza Library</a>
-      <button class="nav-toggle" id="navToggle">Menu</button>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav">Menu</button>
       <nav class="site-nav" id="siteNav">
         <ul>
           <li><a href="index.html">Home</a></li>
@@ -25,12 +25,17 @@
   <main class="wrap">
     <h2 class="page-title">Catalogue</h2>
     <div class="controls">
-      <input type="search" id="searchInput" class="control-field" placeholder="Search by title or author">
-      <select id="genreFilter" class="control-field">
+      <label class="visually-hidden" for="searchInput">Search by title or author</label>
+      <input type="search" id="searchInput" class="control-field"
+             placeholder="Search by title or author"
+             aria-label="Search the catalogue by title or author">
+
+      <label class="visually-hidden" for="genreFilter">Filter by genre</label>
+      <select id="genreFilter" class="control-field" aria-label="Filter the catalogue by genre">
         <option value="all">All genres</option>
       </select>
     </div>
-    <p class="result-count" id="resultCount"></p>
+    <p class="result-count" id="resultCount" aria-live="polite"></p>
     <div class="book-grid" id="bookGrid"></div>
   </main>
 
