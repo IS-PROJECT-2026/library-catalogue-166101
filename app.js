@@ -20,39 +20,8 @@ function setupNavToggle() {
   });
 }
 
-function renderBooks(list) {
-  var grid = document.getElementById("bookGrid");
-  var count = document.getElementById("resultCount");
 
-  if (!grid) {
-    return;
-  }
 
-  grid.innerHTML = "";
-
-  list.forEach(function (book) {
-    var card = document.createElement("article");
-    var initials = book.title.charAt(0) + book.author.charAt(0);
-    var status = book.available ? "Available" : "Out on loan";
-    var badgeClass = book.available ? "badge badge--in" : "badge badge--out";
-
-    card.className = "book-card";
-    card.innerHTML =
-      '<div class="book-cover" aria-hidden="true">' + initials + "</div>" +
-      '<div class="book-body">' +
-      "<h3>" + book.title + "</h3>" +
-      '<p class="book-author">' + book.author + "</p>" +
-      '<p class="book-meta">' + book.genre + " &middot; " + book.year + "</p>" +
-      '<span class="' + badgeClass + '">' + status + "</span>" +
-      "</div>";
-
-    grid.appendChild(card);
-  });
-
-  if (count) {
-    count.textContent = list.length + " titles in the collection";
-  }
-}
 function setupFilters() {
   var input = document.getElementById("searchInput");
   var select = document.getElementById("genreFilter");
