@@ -3,7 +3,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   setupNavToggle();
   renderBooks(books);
-  setupSearch(books);
+  setupFilters();
 });
 
 function setupNavToggle() {
@@ -51,23 +51,48 @@ function renderBooks(list) {
     count.textContent = list.length + " titles in the collection";
   }
 }
-function setupSearch() {
+function setupFilters() {
   var input = document.getElementById("searchInput");
+  var select = document.getElementById("genreFilter");
 
-  if (!input) {
+  if (!input || !select) {
     return;
   }
 
-  input.addEventListener("input", function () {
-    var term = input.value.trim().toLowerCase();
+  populateGenres(select);
+  input.addEventListener("input", applyFilters);
+  select.addEventListener("change", applyFilters);
+}
 
-    var matches = books.filter(function (book) {
-      return (
-        book.title.toLowerCase().indexOf(term) !== -1 ||
-        book.author.toLowerCase().indexOf(term) !== -1
-      );
-    });
+function populateGenres(select) {
+  var genres = [];
 
-    renderBooks(matches);
+  books.forEach(function (book) {
+    if (genres.indexOf(book.genre) === -1) {
+      genres.push(book.genre);
+    }
   });
+
+  genres.sort().forEach(function (genre) {
+    var option = document.createElement("option");
+    option.value = genre;
+    option.textContent = genre;
+    select.appendChild(option);
+  });
+}
+
+function applyFilters() {
+  var term = document.getElementById("searchInput").value.trim().toLowerCase();
+  var genre = document.getElementById("genreFilter").value;
+
+  var matches = books.filter(function (book) {
+    var matchesTerm =
+      book.title.toLowerCase().indexOf(term) !== -1 ||
+      book.author.toLowerCase().indexOf(term) !== -1;
+    var matchesGenre = genre === "all" || book.genre === genre;
+
+    return matchesTerm && matchesGenre;
+  });
+
+  renderBooks(matches);
 }
