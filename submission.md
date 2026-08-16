@@ -58,28 +58,28 @@ Demonstrate your workflow mechanics by embedding your screenshots below.
 ### A. Milestones and Issues
 *Provide a screenshot showing your active milestone(s) and the granular tracking issues linked directly to them.*
 
-(image.png)
+![alt text](image.png)
 
 * **Caption:** A screenshot of the three Milestones.
 
 ### B. Project Board
 *Provide a screenshot of your GitHub Project Board with your issues organized dynamically across columns (To Do, In Progress, Done).*
 
-(image-1.png)
+![alt text](image-1.png)
 
 * **Caption:** A screenshot of the Project Board after project completion.
 
 ### C. Branching Architecture
 *Provide a screenshot showing your local or remote Git branch list, highlighting your use of conventional, issue-linked naming patterns (e.g., `feat/`, `fix/`, `style/`).*
 
-(image-2.png)
+![alt text](image-2.png)
 
 * **Caption:** The branch list are categorically arranged for each issue they affect.
 
 ### D. Pull Requests & Traceability
 *Provide a screenshot of a completed or open Pull Request (PR) on GitHub that clearly shows it is linked to a related development issue.*
 
-(image-3.png)
+![alt text](image-3.png)
 
 * **Caption:** This pull request was implementing adding a genre filter to the system.
 
@@ -100,14 +100,14 @@ You must engineer **three merge conflicts**, each triggered by a **different cau
 #### Step 1: Generating the Clash
 *Screenshot showing the merge attempt and the conflict warning.*
 
-evidence/conflict_evidence_1.png
+![alt text]evidence/conflict_evidence_1.png
 
 * **Caption:**  Branches `style/13-header-teal` and `style/13-header-navy` were both cut from the same commit on `main`, and each rewrote the hero `<h1>` element in `index.html`. After `style/13-header-teal` was merged into `main` via pull request, running `git merge origin/main` from `style/13-header-navy` returned `CONFLICT (content): Merge conflict in index.html` and left the merge in an unresolved state.
 
 #### Step 2: Inside the Code Editor (Conflict Markers)
 *Screenshot showing the raw, unresolved conflict markers (`<<<<<<< HEAD`, `=======`, `>>>>>>>`) in your editor.*
 
-(image-4.png)
+![alt text](image-4.png)
 
 * **Caption:** Git performs a three-way merge, comparing each branch against the common ancestor commit. Both sides changed the same line relative to that ancestor — one to `hero-title--navy` with the heading "Discover Your Next Read", the other to `hero-title--teal` with "Browse the Mwangaza Collection" — so neither change could be treated as an unmodified base and Git had no basis for choosing between them. I resolved it by combining the two intentions: the teal class from the incoming branch, which matches the site's existing accent palette, paired with the navy branch's heading copy, which is more direct as a call to action.
 
@@ -115,7 +115,7 @@ evidence/conflict_evidence_1.png
 #### Step 3: Resolution & Clean Merge
 *Screenshot of your clean Git history or completed PR showing the conflict was resolved and merged.*
 
-(image-5.png)
+![alt text](image-5.png)
 
 * **Caption:** All conflict markers were removed and the single reconciled `<h1>` line was staged and committed as `fix: resolve hero title conflict on merge with main`. The pull request for `style/13-header-navy` then reported a mergeable state and was merged into `main`, leaving a linear, conflict-free history with both branches' work preserved.
 
@@ -130,7 +130,7 @@ evidence/conflict_evidence_1.png
 **Why does this cause trigger a conflict?** The path `theme.css` does not exist in the common ancestor commit, so Git has no base version to diff either side against and cannot compute which content is an edit of which. With two unrelated files claiming the same path, Git refuses to guess, stages both versions and marks the path as conflicted.
 
 
-evidence/conflict_evidence_2.png
+![alt text]evidence/conflict_evidence_2.png
 
 * **Caption:** `feat/14-theme-dark` created `css/theme.css` containing a dark reading palette, while `feat/14-theme-light` independently created a file at the same path containing a high-contrast light palette. After the dark branch was merged to `main`, merging `main` into the light branch produced `CONFLICT (add/add): Merge conflict in css/theme.css`. It was resolved by keeping the dark tokens as the `:root` default and scoping the light tokens under a `[data-theme="light"]` selector, so both contributions survive as switchable themes.
 
@@ -145,7 +145,7 @@ evidence/conflict_evidence_2.png
 **Why does this cause trigger a conflict?**  One side removed the lines entirely while the other side changed those same lines, so there is no surviving location in which to apply the modification. Git will not silently discard either the deletion or the edit, since both are deliberate changes relative to the common ancestor, so it surfaces the removed region and the modified region together for a human decision.
 
 
-evidence/conflict_evidence_3.png
+![alt text]evidence/conflict_evidence_3.png
 
 * **Caption:** `refactor/15-trim-footer` deleted the entire `<footer class="site-footer">` block from `index.html` as part of a cleanup, while `feat/15-footer-social` extended that same block with a list of social media links. Once the removal branch was merged to `main`, merging `main` into `feat/15-footer-social` flagged the footer region, with the incoming side empty. I resolved it in favour of the enhanced footer, as the social links were a deliberate feature addition and the removal had been speculative.
 
