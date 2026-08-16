@@ -15,7 +15,8 @@ function setupNavToggle() {
   }
 
   toggle.addEventListener("click", function () {
-    nav.classList.toggle("is-open");
+    var isOpen = nav.classList.toggle("is-open");
+    toggle.setAttribute("aria-expanded", String(isOpen));
   });
 }
 
@@ -37,7 +38,7 @@ function renderBooks(list) {
 
     card.className = "book-card";
     card.innerHTML =
-      '<div class="book-cover">' + initials + "</div>" +
+      '<div class="book-cover" aria-hidden="true">' + initials + "</div>" +
       '<div class="book-body">' +
       "<h3>" + book.title + "</h3>" +
       '<p class="book-author">' + book.author + "</p>" +
