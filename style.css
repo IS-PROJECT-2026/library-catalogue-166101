@@ -120,3 +120,47 @@ img {
     padding-block: 0.75rem;
   }
 }
+
+.hero {
+  background-color: var(--clr-surface);
+  border-bottom: 1px solid var(--clr-border);
+  padding: 4rem 0;
+}
+
+.hero-title {
+  font-size: clamp(1.9rem, 5vw, 3rem);
+  color: var(--clr-accent-dark);
+}
+
+.hero-text {
+  max-width: 55ch;
+  color: var(--clr-muted);
+  font-size: 1.1rem;
+}
+
+.btn {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.7rem 1.5rem;
+  background-color: var(--clr-accent);
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: var(--radius);
+  font-weight: 600;
+}
+
+.btn:hover {
+  background-color: var(--clr-accent-dark);
+}
+
+.site-footer {
+  background-color: var(--clr-accent-dark);
+  color: #ffffff;
+  padding: 2rem 0;
+  margin-top: 3rem;
+}
+
+.footer-note {
+  margin: 0.25rem 0;
+  font-size: 0.9rem;
+}
