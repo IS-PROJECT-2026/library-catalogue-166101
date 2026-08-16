@@ -1,1 +1,64 @@
 /* Mwangaza Library Catalogue - stylesheet */
+
+:root {
+  --clr-bg: #f7f5f0;
+  --clr-surface: #ffffff;
+  --clr-ink: #1e2a24;
+  --clr-muted: #5d6b64;
+  --clr-accent: #1f6f5c;
+  --clr-accent-dark: #14493c;
+  --clr-border: #dcd9d0;
+  --radius: 10px;
+  --shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --font-body: "Segoe UI", system-ui, sans-serif;
+  --font-head: Georgia, "Times New Roman", serif;
+  --wrap: 1100px;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: var(--font-body);
+  background-color: var(--clr-bg);
+  color: var(--clr-ink);
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-head);
+  line-height: 1.2;
+  margin: 0 0 0.5rem;
+}
+
+a {
+  color: var(--clr-accent);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+.wrap {
+  width: min(100% - 2rem, var(--wrap));
+  margin-inline: auto;
+}
+
+.site-header {
+  background-color: var(--clr-accent-dark);
+  color: #ffffff;
+  padding: 1rem 0;
+}
+
+.site-title {
+  color: #ffffff;
+  margin: 0;
+  font-size: 1.5rem;
+}
