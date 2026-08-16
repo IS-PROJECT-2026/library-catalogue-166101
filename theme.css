@@ -1,0 +1,9 @@
+/* Mwangaza Library - high contrast light theme */
+
+:root {
+  --clr-bg: #ffffff;
+  --clr-surface: #f4f4f4;
+  --clr-ink: #000000;
+  --clr-muted: #333333;
+  --clr-border: #999999;
+}
