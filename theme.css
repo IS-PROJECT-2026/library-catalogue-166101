@@ -1,0 +1,9 @@
+/* Mwangaza Library - dark reading theme */
+
+:root {
+  --clr-bg: #16211d;
+  --clr-surface: #1f2e28;
+  --clr-ink: #eef2f0;
+  --clr-muted: #9db3aa;
+  --clr-border: #2d423a;
+}
