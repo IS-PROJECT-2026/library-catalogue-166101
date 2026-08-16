@@ -3,6 +3,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   setupNavToggle();
   renderBooks(books);
+  setupSearch(books);
 });
 
 function setupNavToggle() {
@@ -49,4 +50,24 @@ function renderBooks(list) {
   if (count) {
     count.textContent = list.length + " titles in the collection";
   }
+}
+function setupSearch() {
+  var input = document.getElementById("searchInput");
+
+  if (!input) {
+    return;
+  }
+
+  input.addEventListener("input", function () {
+    var term = input.value.trim().toLowerCase();
+
+    var matches = books.filter(function (book) {
+      return (
+        book.title.toLowerCase().indexOf(term) !== -1 ||
+        book.author.toLowerCase().indexOf(term) !== -1
+      );
+    });
+
+    renderBooks(matches);
+  });
 }
